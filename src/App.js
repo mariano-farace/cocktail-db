@@ -8,12 +8,12 @@ import Error from "./pages/Error";
 import { AppProvider } from "./context";
 
 //TODO hacer un refactor de app provide y para ponerlo en el index
-
+//TODO ver como sacar el loading undefined del principio
 function App() {
   return (
     <>
+      <NavBar />
       <AppProvider>
-        <NavBar />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<About />} />
