@@ -1,10 +1,12 @@
 import React from "react";
 import { useGlobalContext } from "../context";
 import Loading from "./Loading";
+import Cocktail from "./Cocktail";
 
 function CocktailList() {
   const { cocktails, loading } = useGlobalContext();
-
+  console.log("loading:", loading);
+  console.log("cocktails:", cocktails);
   if (loading) {
     return <Loading />;
   }
@@ -16,8 +18,17 @@ function CocktailList() {
       </h2>
     );
   }
-
-  return <div>CocktailList</div>;
+  //TODO ver como mierda funciona eso de ....item y pasar las props asi!!!!!
+  return (
+    <section className="section">
+      <h2 className="section-title">cocktails</h2>
+      <div className="cocktails-center">
+        {cocktails.map((item) => {
+          return <Cocktail key={item.id} {...item} />;
+        })}
+      </div>
+    </section>
+  );
 }
 
 export default CocktailList;
