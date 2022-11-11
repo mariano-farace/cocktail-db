@@ -1,7 +1,12 @@
 import React from "react";
+import CocktailList from "../components/CocktailList";
 
 function Home() {
-  return <div>Home</div>;
+  return (
+    <main>
+      <CocktailList />
+    </main>
+  );
 }
 
 export default Home;
