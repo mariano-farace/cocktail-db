@@ -48,7 +48,7 @@ const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ loading, searchTerm, cocktails, setSearchTerm }}
+      value={{ loading, searchTerm, cocktails, setSearchTerm, setLoading }}
     >
       {/* all the components that'd like later to consume the context have to be wrapped inside the provider component.
        */}
