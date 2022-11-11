@@ -1,14 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 //TODO cambiar fetch por axios
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
-const AppContext = React.createContext();
+const AppContext = createContext();
+
+//Notar que no hace falta luego pasar la prop children cuando lo uses
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState();
-  const [searchTerm, setSearchTerm] = useState("z");
+  const [searchTerm, setSearchTerm] = useState("a");
   const [cocktails, setCocktails] = useState([]);
 
+  //TODO moverla adentro del useeffect!
   const fetchDrinks = async () => {
     setLoading(true);
     try {
@@ -46,14 +49,17 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{ loading, searchTerm, cocktails, setSearchTerm }}
     >
+      {/* all the components that'd like later to consume the context have to be wrapped inside the provider component.
+       */}
       {children}
     </AppContext.Provider>
   );
 };
 
+//Esta funcion esta hecha para consumer el context. Se exporta por default
 export const useGlobalContext = () => {
   const context = useContext(AppContext);
   return context;
 };
 
-export { AppContext, AppProvider };
+export { AppProvider };
