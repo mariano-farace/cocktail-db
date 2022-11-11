@@ -10,6 +10,7 @@ import { AppProvider } from "./context";
 //TODO hacer un refactor de app provide y para ponerlo en el index
 //TODO ver como sacar el loading undefined del principio
 //TODO ver como funciona la api, para hacer mas fetch y hacer mas render! scrolling infinito
+//TODO implementar la pantalla del loading que no esta andando!!!
 function App() {
   return (
     <>

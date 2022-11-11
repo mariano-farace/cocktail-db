@@ -4,13 +4,13 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const AppContext = createContext();
-
 //Notar que no hace falta luego pasar la prop children cuando lo uses
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState();
   const [searchTerm, setSearchTerm] = useState("a");
   const [cocktails, setCocktails] = useState([]);
 
+  //TODO ver que pasa con la callback
   //TODO moverla adentro del useeffect!
   const fetchDrinks = async () => {
     setLoading(true);
@@ -36,6 +36,7 @@ const AppProvider = ({ children }) => {
       }
       setLoading(false);
     } catch (e) {
+      //TODO handle this error
       console.log(e);
       setLoading(false);
     }
