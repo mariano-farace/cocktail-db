@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 //TODO cambiar fetch por axios
 
-const url = "www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
@@ -16,6 +16,18 @@ const AppProvider = ({ children }) => {
       const data = await response.json();
       const { drinks } = data;
       if (drinks) {
+        const newCockTails = drinks.map((item) => {
+          const { idDrink, srtDrink, strDrinkThumb, strAlcoholic, strGlass } =
+            item;
+          return {
+            id: idDrink,
+            name: srtDrink,
+            image: strDrinkThumb,
+            info: strAlcoholic,
+            glass: strGlass,
+          };
+        });
+        setCocktails(newCockTails);
       } else {
         setCocktails([]);
       }
