@@ -9,6 +9,7 @@ import { AppProvider } from "./context";
 
 //TODO hacer un refactor de app provide y para ponerlo en el index
 //TODO ver como sacar el loading undefined del principio
+//TODO ver como funciona la api, para hacer mas fetch y hacer mas render! scrolling infinito
 function App() {
   return (
     <>
@@ -17,7 +18,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<About />} />
-          <Route exact path="/cocktails:id" element={<SingleCockTail />} />
+          <Route exact path="/cocktail/:id" element={<SingleCockTail />} />
           <Route exact path="/*" element={<Error />} />
         </Routes>
       </AppProvider>
