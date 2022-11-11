@@ -11,38 +11,38 @@ const AppProvider = ({ children }) => {
   const [cocktails, setCocktails] = useState([]);
 
   //TODO ver que pasa con la callback
-  //TODO moverla adentro del useeffect!
-  const fetchDrinks = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`${url}${searchTerm}`);
-      const data = await response.json();
-      const { drinks } = data;
-      if (drinks) {
-        const newCockTails = drinks.map((item) => {
-          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
-            item;
-          return {
-            id: idDrink,
-            name: strDrink,
-            image: strDrinkThumb,
-            info: strAlcoholic,
-            glass: strGlass,
-          };
-        });
-        setCocktails(newCockTails);
-      } else {
-        setCocktails([]);
-      }
-      setLoading(false);
-    } catch (e) {
-      //TODO handle this error
-      console.log(e);
-      setLoading(false);
-    }
-  };
+  //TODO moverla adentro del use effect!
 
   useEffect(() => {
+    const fetchDrinks = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`${url}${searchTerm}`);
+        const data = await response.json();
+        const { drinks } = data;
+        if (drinks) {
+          const newCockTails = drinks.map((item) => {
+            const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
+              item;
+            return {
+              id: idDrink,
+              name: strDrink,
+              image: strDrinkThumb,
+              info: strAlcoholic,
+              glass: strGlass,
+            };
+          });
+          setCocktails(newCockTails);
+        } else {
+          setCocktails([]);
+        }
+        setLoading(false);
+      } catch (e) {
+        //TODO handle this error
+        console.log(e);
+        setLoading(false);
+      }
+    };
     fetchDrinks();
   }, [searchTerm]);
 
@@ -57,7 +57,7 @@ const AppProvider = ({ children }) => {
   );
 };
 
-//Esta funcion esta hecha para consumer el context. Se exporta por default
+//Esta función esta hecha para consumer el context. Se exporta por default
 export const useGlobalContext = () => {
   const context = useContext(AppContext);
   return context;
