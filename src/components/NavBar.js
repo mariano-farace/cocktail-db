@@ -9,12 +9,12 @@ function NavBar() {
         <Link to="/">
           <img src={logo} alt="cocktail db logo" className="logo" />
         </Link>
-        <ul>
+        <ul className="nav-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about">about</Link>
           </li>
         </ul>
       </div>
