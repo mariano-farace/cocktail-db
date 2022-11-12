@@ -12,6 +12,7 @@ const AppProvider = ({ children }) => {
 
   //TODO ver que pasa con la callback
   //TODO moverla adentro del use effect!
+  //TODo poner las cantidades de cada ingrediente!
 
   useEffect(() => {
     const fetchDrinks = async () => {
