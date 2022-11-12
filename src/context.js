@@ -6,13 +6,9 @@ const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 const AppContext = createContext();
 //Notar que no hace falta luego pasar la prop children cuando lo uses
 const AppProvider = ({ children }) => {
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("a");
   const [cocktails, setCocktails] = useState([]);
-
-  //TODO ver que pasa con la callback
-  //TODO moverla adentro del use effect!
-  //TODo poner las cantidades de cada ingrediente!
 
   useEffect(() => {
     const fetchDrinks = async () => {
