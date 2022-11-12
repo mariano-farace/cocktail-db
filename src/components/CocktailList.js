@@ -16,7 +16,6 @@ function CocktailList() {
       </h2>
     );
   }
-  //TODO ver como mierda funciona eso de ....item y pasar las props asi!!!!!
   return (
     <section className="section">
       <h2 className="section-title">cocktails</h2>
