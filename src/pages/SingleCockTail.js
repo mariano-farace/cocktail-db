@@ -32,14 +32,19 @@ function SingleCockTail() {
             strIngredient3,
             strIngredient4,
             strIngredient5,
+            strMeasure1,
+            strMeasure2,
+            strMeasure3,
+            strMeasure4,
+            strMeasure5,
           } = data.drinks[0];
 
           const ingredients = [
-            strIngredient1,
-            strIngredient2,
-            strIngredient3,
-            strIngredient4,
-            strIngredient5,
+            { ingr: strIngredient1, msr: strMeasure1 },
+            { ingr: strIngredient2, msr: strMeasure2 },
+            { ingr: strIngredient3, msr: strMeasure3 },
+            { ingr: strIngredient4, msr: strMeasure4 },
+            { ingr: strIngredient5, msr: strMeasure5 },
           ];
 
           const newCockTail = {
@@ -110,7 +115,11 @@ function SingleCockTail() {
             <span className="drink-data">ingredients :</span>
 
             {cocktail.ingredients.map((item, index) => {
-              const ingredient = item ? <span key={index}>{item}</span> : null;
+              const ingredient = item.ingr ? (
+                <span key={index}>
+                  {item.ingr}: {item.msr}
+                </span>
+              ) : null;
               return ingredient;
             })}
           </p>
