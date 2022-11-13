@@ -168,7 +168,8 @@ function SingleCockTail() {
             {cocktail.ingredients.map((item, index) => {
               const ingredient = item.ingr ? (
                 <StyleSpan key={index}>
-                  {item.ingr}: {item.msr}
+                  -{item.ingr}
+                  {item.msr && <>: {item.msr}</>}
                 </StyleSpan>
               ) : null;
               return ingredient;
