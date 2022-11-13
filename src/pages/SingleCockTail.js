@@ -2,7 +2,59 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import Loading from "../components/Loading";
-import { PrimaryLinkBtn } from "../components/styled/Container.styled";
+import {
+  PrimaryLinkBtn,
+  SectionTitle,
+} from "../components/styled/Container.styled";
+import styled from "styled-components";
+
+const Container = styled.section`
+  padding: 5rem 0;
+  text-align: center;
+`;
+
+const DrinkContainer = styled.div`
+  width: var(--smallWidth);
+  max-width: var(--fullWidth);
+  margin: 0 auto;
+  text-align: left;
+  @media screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
+    align-items: center;
+  }
+`;
+
+const DrinkInfo = styled.div`
+  padding-top: 2rem;
+  @media screen and (min-width: 992px) {
+    padding-top: 0;
+  }
+`;
+
+const Img = styled.img`
+  border-radius: var(--mainBorderRadius);
+`;
+
+const InfoUnit = styled.p`
+  font-weight: bold;
+  text-transform: capitalize;
+  line-height: 1.8;
+`;
+
+const GreenLabel = styled.span`
+  background: var(--primaryLightColor);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--mainBorderRadius);
+  color: var(--primaryColor);
+  margin-right: 0.5 rem;
+  margin-right: 0.5rem;
+`;
+
+const StyleSpan = styled.span`
+  margin-right: 0.5rem;
+`;
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
@@ -80,51 +132,51 @@ function SingleCockTail() {
 
   //In case some kind of error happens and there is no cocktail to display
   if (!cocktail) {
-    return <h2 className="section-title">no cocktail to display</h2>;
+    return <SectionTitle>no cocktail to display</SectionTitle>;
   }
 
   return (
-    <section className="section cocktail-section">
+    <Container>
       <PrimaryLinkBtn to="/">back home</PrimaryLinkBtn>
-      <h2 className="section-title">{cocktail.name}</h2>
-      <div className="drink">
-        <img src={cocktail.image} alt={cocktail.name} />
-        <div className="drink-info">
-          <p>
-            <span className="drink-data"> name :</span>
+      <SectionTitle>{cocktail.name}</SectionTitle>
+      <DrinkContainer>
+        <Img src={cocktail.image} alt={cocktail.name} />
+        <DrinkInfo>
+          <InfoUnit>
+            <GreenLabel> name :</GreenLabel>
             {cocktail.name}
-          </p>
-          <p>
-            <span className="drink-data"> category :</span>
+          </InfoUnit>
+          <InfoUnit>
+            <GreenLabel> category :</GreenLabel>
             {cocktail.category}
-          </p>
-          <p>
-            <span className="drink-data"> info :</span>
+          </InfoUnit>
+          <InfoUnit>
+            <GreenLabel> info :</GreenLabel>
             {cocktail.info}
-          </p>
-          <p>
-            <span className="drink-data"> glass :</span>
+          </InfoUnit>
+          <InfoUnit>
+            <GreenLabel> glass :</GreenLabel>
             {cocktail.glass}
-          </p>
-          <p>
-            <span className="drink-data">instructions :</span>
+          </InfoUnit>
+          <InfoUnit>
+            <GreenLabel>instructions :</GreenLabel>
             {cocktail.instructions}
-          </p>
-          <p>
-            <span className="drink-data">ingredients :</span>
+          </InfoUnit>
+          <InfoUnit>
+            <GreenLabel>ingredients :</GreenLabel>
 
             {cocktail.ingredients.map((item, index) => {
               const ingredient = item.ingr ? (
-                <span key={index}>
+                <StyleSpan key={index}>
                   {item.ingr}: {item.msr}
-                </span>
+                </StyleSpan>
               ) : null;
               return ingredient;
             })}
-          </p>
-        </div>
-      </div>
-    </section>
+          </InfoUnit>
+        </DrinkInfo>
+      </DrinkContainer>
+    </Container>
   );
 }
 
