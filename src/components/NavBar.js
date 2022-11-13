@@ -1,15 +1,59 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../logo.svg";
+import styled from "styled-components";
+
+const StyledNav = styled.nav`
+  background: var(--mainWhite);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--primaryColor);
+  box-shadow: var(--lightShadow);
+
+  ul {
+    display: flex;
+    align-items: center;
+
+    a {
+      text-transform: capitalize;
+      display: inline-block;
+      font-weight: bold;
+      margin-right: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      font-size: 1.2rem;
+      padding: 0.25rem 0.5rem;
+      transition: var(--mainTransition);
+
+      &:hover {
+        color: var(--primaryColor);
+      }
+    }
+  }
+`;
+
+const Container = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--fullWidth);
+`;
+
+const Logo = styled.img`
+  width: 12rem;
+`;
 
 function NavBar() {
   return (
-    <nav className="navbar">
-      <div className="nav-center">
+    <StyledNav>
+      <Container>
         <Link to="/">
-          <img src={logo} alt="cocktail db logo" className="logo" />
+          <Logo src={logo} alt="cocktail db logo" />
         </Link>
-        <ul className="nav-links">
+        <ul>
           <li>
             <Link to="/">home</Link>
           </li>
@@ -17,8 +61,8 @@ function NavBar() {
             <Link to="/about">about</Link>
           </li>
         </ul>
-      </div>
-    </nav>
+      </Container>
+    </StyledNav>
   );
 }
 

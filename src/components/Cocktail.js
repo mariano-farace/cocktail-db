@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { PrimaryLinkBtnSmall } from "../components/styled/Container.styled";
 
 const Cocktail = ({ image, name, id, info, glass }) => {
   return (
@@ -11,9 +11,9 @@ const Cocktail = ({ image, name, id, info, glass }) => {
         <h3>{name}</h3>
         <h4>{glass}</h4>
         <p>{info}</p>
-        <Link to={`/cocktail/${id}`} className="btn btn-primary btn-details">
+        <PrimaryLinkBtnSmall to={`/cocktail/${id}`}>
           details
-        </Link>
+        </PrimaryLinkBtnSmall>
       </div>
     </article>
   );

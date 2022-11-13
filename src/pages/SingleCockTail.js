@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import Loading from "../components/Loading";
+import { PrimaryLinkBtn } from "../components/styled/Container.styled";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
@@ -84,9 +85,7 @@ function SingleCockTail() {
 
   return (
     <section className="section cocktail-section">
-      <Link to="/" className="btn btn-primary">
-        back home
-      </Link>
+      <PrimaryLinkBtn to="/">back home</PrimaryLinkBtn>
       <h2 className="section-title">{cocktail.name}</h2>
       <div className="drink">
         <img src={cocktail.image} alt={cocktail.name} />
