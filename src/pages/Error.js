@@ -1,15 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { PrimaryLinkBtn } from "../components/styled/Container.styled";
+
+const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+
+  div {
+    text-align: center;
+    text-transform: capitalize;
+  }
+`;
 
 function Error() {
   return (
-    <section className="error-page section">
-      <div className="error-container">
+    <Section>
+      <div>
         <h1>oops! it's a dead end</h1>
         <PrimaryLinkBtn to="/">back home</PrimaryLinkBtn>
       </div>
-    </section>
+    </Section>
   );
 }
 

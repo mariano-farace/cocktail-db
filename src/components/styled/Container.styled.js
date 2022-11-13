@@ -46,3 +46,12 @@ export const PrimaryLinkBtn = styled(Link)`
 export const PrimaryLinkBtnSmall = styled(PrimaryLinkBtn)`
   padding: 0.25rem 0.4rem;
 `;
+
+export const SectionTitle = styled.h1`
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+  margin-bottom: 3.5rem;
+  margin-top: 1rem;
+`;

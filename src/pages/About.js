@@ -1,9 +1,24 @@
 import React from "react";
+import styled from "styled-components";
+import { SectionTitle } from "../components/styled/Container.styled";
+
+const Section = styled.section`
+  padding: 5rem 0;
+  width: var(--smallWidth);
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+
+  p {
+    line-height: 2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+`;
 
 function About() {
   return (
-    <section className="section about-section">
-      <h1 className="section-title">about us</h1>
+    <Section>
+      <SectionTitle>about us</SectionTitle>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus omnis
         commodi cumque ex a facilis atque nemo eveniet corrupti recusandae
@@ -11,7 +26,7 @@ function About() {
         consequuntur corporis, asperiores ad recusandae aut quis explicabo,
         optio deserunt quidem.
       </p>
-    </section>
+    </Section>
   );
 }
 

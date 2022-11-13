@@ -2,6 +2,24 @@ import React from "react";
 import { useGlobalContext } from "../context";
 import Loading from "./Loading";
 import Cocktail from "./Cocktail";
+import { SectionTitle } from "./styled/Container.styled";
+import styled from "styled-components";
+
+const Container = styled.section`
+  padding: 5rem 0;
+`;
+
+const CocktailListContainer = styled.div`
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--fullWidth);
+  display: grid;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  @media screen and (min-width: 576px) {
+    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+  }
+`;
 
 function CocktailList() {
   const { cocktails, loading } = useGlobalContext();
@@ -11,20 +29,18 @@ function CocktailList() {
 
   if (cocktails.length < 1) {
     return (
-      <h2 className="section-title">
-        no cocktails matched your search criteria
-      </h2>
+      <SectionTitle>no cocktails matched your search criteria</SectionTitle>
     );
   }
   return (
-    <section className="section">
-      <h2 className="section-title">cocktails</h2>
-      <div className="cocktails-center">
+    <Container>
+      <SectionTitle>cocktails</SectionTitle>
+      <CocktailListContainer>
         {cocktails.map((item) => {
           return <Cocktail key={item.id} {...item} />;
         })}
-      </div>
-    </section>
+      </CocktailListContainer>
+    </Container>
   );
 }
 
