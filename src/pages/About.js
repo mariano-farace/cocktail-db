@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { SectionTitle } from "../components/styled/Container.styled";
+import { SectionTitle } from "../components/styled/SharedStyles.styled";
 
 const Section = styled.section`
   padding: 5rem 0;

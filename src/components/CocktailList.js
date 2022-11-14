@@ -2,7 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../context";
 import Loading from "./Loading";
 import Cocktail from "./Cocktail";
-import { SectionTitle } from "./styled/Container.styled";
+import { SectionTitle } from "./styled/SharedStyles.styled";
 import styled from "styled-components";
 
 const Container = styled.section`

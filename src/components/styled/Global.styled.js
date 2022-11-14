@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
 * {
   margin: 0;
   padding: 0;
@@ -40,8 +41,6 @@ img {
   width: 100%;
   display: block;
 }
-
-
-
 `;
+
 export default GlobalStyle;

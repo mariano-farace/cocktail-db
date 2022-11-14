@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import {
   PrimaryLinkBtn,
   SectionTitle,
-} from "../components/styled/Container.styled";
+} from "../components/styled/SharedStyles.styled";
 import styled from "styled-components";
 
 const Container = styled.section`

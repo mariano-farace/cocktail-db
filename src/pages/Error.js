@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PrimaryLinkBtn } from "../components/styled/Container.styled";
+import { PrimaryLinkBtn } from "../components/styled/SharedStyles.styled";
 
 const Section = styled.section`
   display: flex;

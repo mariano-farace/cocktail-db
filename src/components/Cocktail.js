@@ -1,5 +1,5 @@
 import React from "react";
-import { PrimaryLinkBtnSmall } from "../components/styled/Container.styled";
+import { PrimaryLinkBtnSmall } from "./styled/SharedStyles.styled";
 import styled from "styled-components";
 
 const Container = styled.article`
