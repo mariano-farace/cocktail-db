@@ -5,11 +5,13 @@ import About from "./pages/About";
 import SingleCockTail from "./pages/SingleCockTail";
 import Error from "./pages/Error";
 import { AppProvider } from "./context";
+import GlobalStyle from "./components/styled/Global.styled";
 
 //TODO ver como funciona la api, para hacer mas fetch y hacer mas render! scrolling infinito
 function App() {
   return (
     <>
+      <GlobalStyle />
       <NavBar />
       <AppProvider>
         <Routes>
