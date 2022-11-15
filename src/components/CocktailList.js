@@ -17,7 +17,7 @@ const CocktailListContainer = styled.div`
   row-gap: 2rem;
   column-gap: 2rem;
   @media screen and (min-width: 576px) {
-    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 `;
 
